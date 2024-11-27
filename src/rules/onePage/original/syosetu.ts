@@ -72,7 +72,7 @@ export const syosetu = () => {
   };
   const getAList = () => {
     const _aList = document.querySelectorAll(
-      "body > div.l-container > main > article > div.p-eplist > div > a"
+      "div.p-eplist__sublist > a:nth-child(1)"
     );
     if (_aList.length !== 0) {
       return _aList;
@@ -98,9 +98,9 @@ export const syosetu = () => {
     ).innerText.trim(),
     author: (
       document.querySelector(
-        "body > div.l-container > main > article > div.p-novel__author > a"
+        ".p-novel__author"
       ) as HTMLAnchorElement
-    ).innerText,
+    ).innerText.replace("作者：", ""),
     introDom: getIntroDom(),
     introDomPatch: (dom) => dom,
     coverUrl: null,
